@@ -33,7 +33,7 @@ function CatList() {
       })
       .then((res) => {
         setAppData({ loading: false, error: false });
-        setCats(res.data);
+        setCats(res.data[0]);
       });
   }, []);
 
@@ -47,7 +47,6 @@ function CatList() {
         },
       })
       .then((res) => {
-        console.log("res.data");
         setAppData({ loading: false, error: false });
         setCats(res.data);
       })
@@ -83,12 +82,12 @@ function CatList() {
       )}
       {error && <ErrorContainer>{error}</ErrorContainer>}
       {cats && !loading && !error
-        ? cats[0].breeds.map((cat, index) => (
+        ? cats.breeds.map((cat, index) => (
             <CatInfoContainer key={index}>
               <Title fontSize="2rem">{cat.name}</Title>
               <br />
               <img
-                src={cats[0].url}
+                src={cats.url}
                 alt={`${cat.name}`}
                 width="200"
                 height="200"
