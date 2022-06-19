@@ -11,6 +11,8 @@ import {
   MetaDataContainer,
   Divider,
   Description,
+  SubHeading,
+  Title,
 } from "../styles/CatBreedInfoStyles";
 import { LoadingContainer, ErrorContainer } from "../styles/Utils";
 
@@ -83,11 +85,11 @@ function CatList() {
       {cats && !loading && !error
         ? cats[0].breeds.map((cat, index) => (
             <CatInfoContainer key={index}>
-              <h1 style={{ textDecoration: "underline" }}>{cat.name}</h1>
+              <Title fontSize="2rem">{cat.name}</Title>
               <br />
               <img
                 src={cats[0].url}
-                alt={`Image of ${cat.name}`}
+                alt={`${cat.name}`}
                 width="200"
                 height="200"
               />
@@ -96,29 +98,57 @@ function CatList() {
               <Description> {cat.description}</Description>
               <FlexBox>
                 <MetaDataContainer>
-                  <h4>Information</h4>
+                  <Title>Information</Title>
                   <br />
-                  <p>Life Span: {cat.life_span} years</p>
-                  <Divider />
-                  <p> Origin: {cat.origin} </p>
-                  <Divider />
-                  <p> Temperament: {cat.temperament}</p>
-                  <Divider />
                   <p>
-                    Weight: {cat.weight.metric} kgs ({cat.weight.imperial} lbs)
+                    <SubHeading>Life Span:</SubHeading> {cat.life_span} years
+                  </p>
+                  <Divider />
+                  <br />
+                  <p>
+                    {" "}
+                    <SubHeading>Origin:</SubHeading> {cat.origin}{" "}
+                  </p>
+                  <Divider />
+                  <br />
+                  <p>
+                    {" "}
+                    <SubHeading>Temperament:</SubHeading> {cat.temperament}
+                  </p>
+                  <Divider />
+                  <br />
+                  <p>
+                    <SubHeading> Weight:</SubHeading> {cat.weight.metric} kgs (
+                    {cat.weight.imperial} lbs)
                   </p>
                   <Divider />
                 </MetaDataContainer>
                 <MetaDataContainer>
-                  <h4>Ratings (out of 5)</h4>
+                  <Title>Ratings (out of 5)</Title>
                   <br />
-                  <p>Adaptability: {renderStars(cat.adaptability)}</p>
+                  <p>
+                    <SubHeading> Adaptability:</SubHeading>
+                    <br /> {renderStars(cat.adaptability)}
+                  </p>
                   <Divider />
-                  <p> Shedding level: {renderStars(cat.shedding_level)}</p>
+                  <p>
+                    {" "}
+                    <SubHeading> Shedding level:</SubHeading>
+                    <br /> {renderStars(cat.shedding_level)}
+                  </p>
                   <Divider />
-                  <p> Social Needs: {renderStars(cat.social_needs)}</p>
+                  <p>
+                    {" "}
+                    <SubHeading> Social Needs: </SubHeading>
+                    <br />
+                    {renderStars(cat.social_needs)}
+                  </p>
                   <Divider />
-                  <p> Intelligence: {renderStars(cat.intelligence)}</p>
+                  <p>
+                    {" "}
+                    <SubHeading>Intelligence:</SubHeading> <br />
+                    {renderStars(cat.intelligence)}
+                  </p>
                   <Divider />
                 </MetaDataContainer>
               </FlexBox>

@@ -3,7 +3,7 @@ import { HeaderContainer, HeaderTitle } from "../styles/HeaderStyles";
 function Header() {
   return (
     <HeaderContainer>
-      <HeaderTitle>Cat Information</HeaderTitle>
+      <HeaderTitle>Cat Search</HeaderTitle>
     </HeaderContainer>
   );
 }
